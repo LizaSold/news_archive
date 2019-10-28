@@ -1,7 +1,7 @@
 # News_archive
 News-database that is regularly updated
 
-# What does it do
+## What does it do
  - Crawl url: https://www.spiegel.de/international/
  - Extract News-Entries from HTML
     * Title
@@ -17,3 +17,64 @@ News page example:
 
 Database screenshot:
 ![database look](https://sun9-29.userapi.com/c853428/v853428960/131b65/hcetUa5gGI4.jpg)
+
+## How to run
+
+1. Install Python 3.6
+
+ - Ubuntu (17.10 and above): installed by defaullt
+  
+ - Ubuntu (16.10 and lower):
+  ```
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+  ```
+ - Windows: navigate to [Download page](https://www.python.org/downloads/windows/) and run installer
+
+2. Install necessary libraries
+  ```
+$ pip install psycopg2
+$ pip install psycopg2.extras
+$ pip install requests
+$ pip install datetime
+$ pip install timeloop
+$ pip install bs4
+  ```
+
+3. Install pgAdmin4
+ - Ubuntu: 
+  ``` 
+$ sudo apt-get install pgadmin4
+  ```
+ - Windows: navigate to [Download page](https://www.pgadmin.org/download/)
+ 
+ Note: port = "5433", user="postgres", password="12345"
+ 
+ 4. Create database:
+  - open the SQL Shell
+  - write the command
+  
+    ``` 
+    $ CREATE DATABASE news_archive
+    ```
+  -connect to a Database using the command
+      ``` 
+    $ \c news_archive
+    ```
+   
+   5. Run the script 
+ - go to the folder with crawler.py using command line
+    ``` 
+    $ cd folder_path
+    ```
+    
+  - run the script
+    
+    ``` 
+    $ python crawler.py
+    ```
+  - look throw the database using SQL Shell
+     ``` 
+    $ show tables
+    $ select news_archive
+    ```
